@@ -49,10 +49,10 @@ public class Employee {
     public static void мaximalSalary(Employee[] storage) { // Найти сотрудника с максимальной зарплатой.
         double maxSalary = storage[0].getEmployeeSalary();
         String fullNameEmployee = storage[0].getFullName();
-        for (Employee employeeSalary : storage) {
-            if (employeeSalary.getEmployeeSalary() > maxSalary && employeeSalary != null) {
-                maxSalary = employeeSalary.getEmployeeSalary();
-                fullNameEmployee = employeeSalary.getFullName();
+        for (Employee employee : storage) {
+            if (employee.getEmployeeSalary() > maxSalary && employee != null) {
+                maxSalary = employee.getEmployeeSalary();
+                fullNameEmployee = employee.getFullName();
             }
         }
         System.out.println("Сотрудник с максимальной зарплатой - " + fullNameEmployee);
@@ -60,10 +60,10 @@ public class Employee {
     public static void minimalSalary(Employee[] storage) { // Найти сотрудника с минимальной зарплатой.
         double minSalary = storage[0].getEmployeeSalary();
         String fullNameEmployee = storage[0].getFullName();
-        for (Employee employeeSalary : storage) {
-            if (employeeSalary.getEmployeeSalary() < minSalary && employeeSalary != null) {
-                minSalary = employeeSalary.getEmployeeSalary();
-                fullNameEmployee = employeeSalary.getFullName();
+        for (Employee employee : storage) {
+            if (employee.getEmployeeSalary() < minSalary && employee != null) {
+                minSalary = employee.getEmployeeSalary();
+                fullNameEmployee = employee.getFullName();
 
             }
         }
@@ -89,5 +89,15 @@ public class Employee {
     }
 
     // Повышенная сложность
+    public static void salaryIndexation(Employee[] storage) {
+        double index = storage[0].getEmployeeSalary();
+        double percent = 10;
+        for (Employee employee : storage) {
+            if (employee != null){
+                employee.setEmployeeSalary(employee.setEmployeeSalary * 1.1);
+                System.out.println(employee);
+            }
+        }
+    }
 
 }
