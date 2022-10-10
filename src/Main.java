@@ -39,6 +39,9 @@ public class Main {
 
         System.out.println();
         Employee.fullNameAll(storage);
+
+        System.out.println();
+        Employee.salaryIndexation(storage);
     }
 
 }
