@@ -23,6 +23,7 @@ public class Employee {
     }
 
     public double getEmployeeSalary() {
+
         return employeeSalary;
     }
 
@@ -35,15 +36,6 @@ public class Employee {
     }
 
     // Базовая сложность
-
-    @Override
-    public String toString() { // Получить список всех сотрудников со всеми имеющимися по ним данными
-        return "Данные: " +
-                "Ф.И.О. - " + fullName +
-                ", Отдел - " + department +
-                ", Зарплата - " + employeeSalary +
-                ", Идентификатор - " + id;
-    }
 
     public static void sumSalary(Employee[] storage) { // Посчитать сумму затрат на зарплаты в месяц.
         int sum = 0;
@@ -58,7 +50,7 @@ public class Employee {
         double maxSalary = storage[0].getEmployeeSalary();
         String fullNameEmployee = storage[0].getFullName();
         for (Employee employeeSalary : storage) {
-            if (employeeSalary.getEmployeeSalary() > maxSalary) {
+            if (employeeSalary.getEmployeeSalary() > maxSalary && employeeSalary != null) {
                 maxSalary = employeeSalary.getEmployeeSalary();
                 fullNameEmployee = employeeSalary.getFullName();
             }
@@ -69,9 +61,10 @@ public class Employee {
         double minSalary = storage[0].getEmployeeSalary();
         String fullNameEmployee = storage[0].getFullName();
         for (Employee employeeSalary : storage) {
-            if (employeeSalary.getEmployeeSalary() < minSalary) {
+            if (employeeSalary.getEmployeeSalary() < minSalary && employeeSalary != null) {
                 minSalary = employeeSalary.getEmployeeSalary();
                 fullNameEmployee = employeeSalary.getFullName();
+
             }
         }
         System.out.println("Сотрудник с минимальной зарплатой - " + fullNameEmployee);
@@ -80,7 +73,9 @@ public class Employee {
     public static void averageSum(Employee[] storage) { // Подсчитать среднее значение зарплат
         double averageAmount = 0;
         for (Employee employeeSalary : storage) {
-            averageAmount += employeeSalary.getEmployeeSalary();
+            if (employeeSalary != null) {
+                averageAmount += employeeSalary.getEmployeeSalary();
+            }
         }
         System.out.println("Среднее значение зарплат - " + averageAmount/storage.length + " рублей");
     }
@@ -94,15 +89,5 @@ public class Employee {
     }
 
     // Повышенная сложность
-
-    public static void salaryIndexation(Employee[] storage) {
-        double index = storage[0].getEmployeeSalary();
-        double percent = 10;
-        for (Employee employeeSalary : storage) {
-            index = employeeSalary.getEmployeeSalary() * (1 + 0.1);
-        }
-        System.out.println(index);
-    }
-
 
 }
